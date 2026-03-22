@@ -1,0 +1,1 @@
+console.log('Avoris Front Challenge loaded');
