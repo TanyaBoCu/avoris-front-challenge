@@ -1,1 +1,3 @@
-console.log('Avoris Front Challenge loaded');
+import { renderHome } from './modules/render-home';
+
+renderHome();
