@@ -1,14 +1,12 @@
-import { Header } from '../components/header';
-import { HeroCarousel } from '../components/hero-carousel';
-import { FiltersPanel } from '../components/filters-panel';
-import { PricePopover } from '../components/price-popover';
-import { Footer } from '../components/footer';
+import { Header } from '../components/header.js';
+import { HeroCarousel } from '../components/hero-carousel.js';
+
+import { Footer } from '../components/footer.js';
 
 export function renderHome() {
   const app = document.querySelector('#app');
 
   app.innerHTML = `
-    <a class="skip-link" href="#main">Saltar al contenido</a>
     ${Header()}
     <main id="main" tabindex="-1">
       ${HeroCarousel()}
@@ -19,11 +17,11 @@ export function renderHome() {
         </div>
 
         <div class="filters-destinations">
-          ${FiltersPanel()}
+          
           <div class="all-info" id="destinations-sections"></div>
         </div>
 
-        ${PricePopover()}
+        
       </section>
     </main>
     ${Footer()}
