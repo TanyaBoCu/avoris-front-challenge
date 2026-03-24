@@ -1,3 +1,5 @@
+@use '../settings/tokens' as *;
+
 @mixin focus-ring($color: rgba(var(--accent-rgb) / .25), $size: 3px) {
   outline: 2px solid transparent;
   box-shadow: 0 0 0 $size $color;
@@ -15,6 +17,12 @@
 
 @mixin respond-max($bp) {
   @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin respond-max($breakpoint) {
+  @media (max-width: $breakpoint) {
     @content;
   }
 }

@@ -7,10 +7,14 @@
   --accent-rgb: 255 143 80;
   --title: #2F222F;
   --btn: #4E250E;
+
   --radius: 24px;
   --radius-btn: 208px;
   --shadow: 0 6px 22px rgba(0,0,0,.12);
+
+  --font-base: 'Nunito', sans-serif;
   --font-title: 'Syne', sans-serif;
+
   --fs-title-h2: clamp(30px, calc(30px + (38 - 30) * ((100vw - 1180px) / (1920 - 1180))), 38px);
   --lh-title-h2: clamp(32px, calc(32px + (40 - 32) * ((100vw - 1180px) / (1920 - 1180))), 40px);
   --fs-title-h3: clamp(20px, calc(20px + (22 - 20) * ((100vw - 1180px) / (1920 - 1180))), 22px);

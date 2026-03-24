@@ -1,0 +1,30 @@
+@use '../tools/mixins' as *;
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  @include focus-ring;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background-color: #111;
+  color: var(--bg);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 10000;
+
+  &:focus-visible {
+    left: 16px;
+    top: 16px;
+  }
+}
+
+.scrolled .site-header {
+  box-shadow: var(--shadow);
+}
