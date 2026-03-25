@@ -4,6 +4,10 @@ import { FiltersPanel } from '../components/filters-panel.js';
 import { PricePopover } from '../components/price-popover.js';
 import { destinations } from '../../data/destinations.js';
 import { DestinationList } from '../components/destination-list.js';
+import { accessibility } from './accessibility.js';
+import { applyFilters } from './apply-filters.js';
+import { initPricePopover } from './price-popover.js';
+import { updateCardDisplayedPrices } from './calculate-price.js';
 import { Footer } from '../components/footer.js';
 
 export function renderHome() {
@@ -43,4 +47,9 @@ export function renderHome() {
     ${DestinationList('Asia', 'asia', asiaItems)}
     ${DestinationList('Europa', 'europa', europeItems)}
   `;
+
+  updateCardDisplayedPrices();
+  applyFilters();
+  accessibility();
+  initPricePopover();
 }
