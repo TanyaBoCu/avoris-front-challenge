@@ -8,11 +8,11 @@ export function applyFilters() {
   if (!filtersForm || !cards.length) return;
 
   const getCheckedValues = (name) => {
-    return [...filtersForm.querySelectorAll(input[name="${name}"]:checked)].map((input) => input.value);
+    return [...filtersForm.querySelectorAll(`input[name="${name}"]:checked`)].map((input) => input.value);
   };
 
   const getValue = (name) => {
-    return filtersForm.querySelector(input[name="${name}"])?.value?.trim() || '';
+    return filtersForm.querySelector(`input[name="${name}"]`)?.value?.trim() || '';
   };
 
   const filterCards = () => {
