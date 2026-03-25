@@ -1,5 +1,6 @@
 import { Header } from '../components/header.js';
 import { HeroCarousel } from '../components/hero-carousel.js';
+import { FiltersPanel } from '../components/filters-panel.js';
 
 import { Footer } from '../components/footer.js';
 
@@ -17,7 +18,7 @@ export function renderHome() {
         </div>
 
         <div class="filters-destinations">
-          
+          ${FiltersPanel()}
           <div class="all-info" id="destinations-sections"></div>
         </div>
 

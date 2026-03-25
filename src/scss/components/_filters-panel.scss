@@ -1,0 +1,281 @@
+@use '../tools/mixins' as *;
+@use '../settings/tokens' as *;
+
+.filters-toggle {
+  @include flex-center;
+  display: none;
+  gap: 12px;
+  padding: 8px 14px;
+  border-radius: var(--radius-btn);
+  background: #faf7f5;
+  border: 1px solid rgba(98, 47, 96, 0.16);
+  cursor: pointer;
+  @include transition;
+
+  .icon::before {
+    position: relative;
+    content: "";
+    display: flex;
+    width: 24px;
+    height: 24px;
+    background-image: url("/img/filter.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--txt);
+  }
+}
+
+.filters-close {
+  display: none;
+}
+
+.select-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 72px;
+  padding: 72px 32px;
+}
+
+.titles-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  h2 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: var(--fs-title-h2);
+    line-height: var(--lh-title-h2);
+    text-align: center;
+    color: var(--title);
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: var(--fs-title-h3);
+    line-height: var(--lh-title-h3);
+    text-align: center;
+    color: var(--title-secondary);
+  }
+}
+
+.select-cards .filters-destinations {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  max-width: 1128px;
+
+  .menu-filters {
+    min-width: 264px;
+    max-width: 264px;
+    flex: 1;
+    padding-top: 40px;
+  }
+
+  .filters-form {
+    background-color: #fbf6f4;
+    border-radius: 24px;
+
+    .filters-title {
+      padding: 32px 24px 24px;
+      border-bottom: 1px solid #e0d9e0;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .filter-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .price-fields,
+    .dates {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    label.pill-input,
+    .date-field input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-btn);
+      background-color: var(--bg);
+    }
+
+    label.pill-input {
+      .pill-icon {
+        width: 18px;
+        height: 18px;
+        background-image: url("/img/price-primary.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        @include transition;
+      }
+    }
+
+    .pill-input input {
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      color: var(--brand);
+    }
+
+    .date-field,
+    .date-field input {
+      width: 100%;
+    }
+
+    .date-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+
+  .all-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    gap: 32px;
+  }
+}
+
+.filters-form {
+  .filter-dest .filter-summary .icon { background-image: url("/img/world.svg"); }
+  .filter-adv .filter-summary .icon { background-image: url("/img/adventure.svg"); }
+  .filter-acc .filter-summary .icon { background-image: url("/img/hotel.svg"); }
+  .filter-pri .filter-summary .icon { background-image: url("/img/price.svg"); }
+  .filter-dat .filter-summary .icon { background-image: url("/img/calendar.svg"); }
+
+  .filter-dest.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
+  .filter-dest.filter-group[open] .filter-summary .icon { background-image: url("/img/world-hover.svg"); }
+
+  .filter-adv.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
+  .filter-adv.filter-group[open] .filter-summary .icon { background-image: url("/img/adventure-hover.svg"); }
+
+  .filter-acc.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
+  .filter-acc.filter-group[open] .filter-summary .icon { background-image: url("/img/hotel-hover.svg"); }
+
+  .filter-pri.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
+  .filter-pri.filter-group[open] .filter-summary .icon { background-image: url("/img/price-hover.svg"); }
+
+  .filter-dat.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
+  .filter-dat.filter-group[open] .filter-summary .icon { background-image: url("/img/calendar-hover.svg"); }
+
+  a.see-more {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--brand);
+    text-align: left;
+    text-decoration: underline;
+    padding: 12px 16px;
+  }
+}
+
+@include respond-max($bp-1200) {
+  .filters-toggle { display: flex; }
+
+  .select-cards .filters-destinations {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .menu-filters {
+      position: absolute;
+      min-width: 300px;
+      max-width: 300px;
+      top: 0;
+      left: -36px;
+      bottom: -72px;
+      padding-top: 0;
+      transform: translateX(-100%);
+      border-radius: 0;
+      z-index: 9;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      transition: transform .35s ease;
+    }
+  }
+
+  #filters-drawer .filters-close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 32px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  #filters-drawer form {
+    height: 100%;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .select-cards .filters-destinations .filters-form .filters-title {
+    text-align: left;
+  }
+
+  #filters-drawer[data-open="true"] {
+    background-color: #fbf6f4;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .select-cards {
+    padding: 72px 24px;
+  }
+}
+
+@include respond-max($bp-1024) {
+  .select-cards .filters-destinations .menu-filters {
+    left: -24px;
+  }
+}
+
+@include respond-max($bp-767) {
+  .select-cards .filters-destinations {
+    align-items: center;
+  }
+}
