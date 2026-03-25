@@ -1,20 +1,63 @@
 import { destinations } from '../../data/destinations.js';
 import { DestinationList } from '../components/destination-list.js';
-import { Footer } from '../components/footer.js';
 import { FiltersPanel } from '../components/filters-panel.js';
+import { Footer } from '../components/footer.js';
 import { Header } from '../components/header.js';
 import { HeroCarousel } from '../components/hero-carousel.js';
 import { PricePopover } from '../components/price-popover.js';
+
 import { accessibility } from './accessibility.js';
 import { applyFilters } from './apply-filters.js';
+import { initHeroCarousel } from './hero-carousel.js';
 import { initPricePopover } from './price-popover.js';
 import { initPriceUpdates } from './calculate-price.js';
-import { initHeroCarousel } from './hero-carousel.js';
 
-export function renderHome() {
-  const app = document.querySelector('#app');
+function getDestinationsByContinent(continent) {
+  return destinations.filter((item) => item.continent === continent);
+}
 
-  app.innerHTML = `
+function renderDestinationSections() {
+  const destinationsSections = document.querySelector('#destinations-sections');
+  if (!destinationsSections) return;
+
+  const sections = [
+    {
+      title: 'África',
+      group: 'africa',
+      items: getDestinationsByContinent('africa')
+    },
+    {
+      title: 'América del Norte',
+      group: 'namerica',
+      items: getDestinationsByContinent('namerica')
+    },
+    {
+      title: 'Asia',
+      group: 'asia',
+      items: getDestinationsByContinent('asia')
+    },
+    {
+      title: 'Europa',
+      group: 'europa',
+      items: getDestinationsByContinent('europa')
+    }
+  ];
+
+  destinationsSections.innerHTML = sections
+    .map((section) => DestinationList(section.title, section.group, section.items))
+    .join('');
+}
+
+function initHomeModules() {
+  initPriceUpdates();
+  applyFilters();
+  accessibility();
+  initPricePopover();
+  initHeroCarousel();
+}
+
+function getHomeTemplate() {
+  return `
     ${Header()}
     <main id="main" tabindex="-1">
       ${HeroCarousel()}
@@ -34,24 +77,14 @@ export function renderHome() {
     </main>
     ${Footer()}
   `;
+}
 
-  const destinationsSections = document.querySelector('#destinations-sections');
+export function renderHome() {
+  const app = document.querySelector('#app');
+  if (!app) return;
 
-  const africaItems = destinations.filter((item) => item.continent === 'africa');
-  const northAmericaItems = destinations.filter((item) => item.continent === 'namerica');
-  const asiaItems = destinations.filter((item) => item.continent === 'asia');
-  const europeItems = destinations.filter((item) => item.continent === 'europa');
+  app.innerHTML = getHomeTemplate();
 
-  destinationsSections.innerHTML = `
-    ${DestinationList('África', 'africa', africaItems)}
-    ${DestinationList('América del Norte', 'namerica', northAmericaItems)}
-    ${DestinationList('Asia', 'asia', asiaItems)}
-    ${DestinationList('Europa', 'europa', europeItems)}
-  `;
-
-  initPriceUpdates();
-  applyFilters();
-  accessibility();
-  initPricePopover();
-  initHeroCarousel();
+  renderDestinationSections();
+  initHomeModules();
 }
