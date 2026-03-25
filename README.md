@@ -44,19 +44,33 @@ La implementación se ha planteado con una arquitectura clara para facilitar la 
 ## Estructura del proyecto
 
 src
+
 ├─ data
+
 ├─ js
+
 │  ├─ components
+
 │  ├─ modules
+
 │  └─ utils
+
 ├─ scss
+
 │  ├─ settings
+
 │  ├─ tools
+
 │  ├─ generic
+
 │  ├─ elements
+
 │  ├─ objects
+
 │  ├─ components
+
 │  └─ utilities
+
 ├─ main.js
 
 ## Cómo ejecutar el proyecto
