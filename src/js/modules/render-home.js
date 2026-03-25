@@ -8,7 +8,7 @@ import { PricePopover } from '../components/price-popover.js';
 import { accessibility } from './accessibility.js';
 import { applyFilters } from './apply-filters.js';
 import { initPricePopover } from './price-popover.js';
-import { updateCardDisplayedPrices } from './calculate-price.js';
+import { initPriceUpdates } from './calculate-price.js';
 import { initHeroCarousel } from './hero-carousel.js';
 
 export function renderHome() {
@@ -49,7 +49,7 @@ export function renderHome() {
     ${DestinationList('Europa', 'europa', europeItems)}
   `;
 
-  updateCardDisplayedPrices();
+  initPriceUpdates();
   applyFilters();
   accessibility();
   initPricePopover();
