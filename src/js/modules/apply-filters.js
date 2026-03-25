@@ -1,3 +1,5 @@
+import { calculatePriceBreakdown } from './calculate-price.js';
+
 export function applyFilters() {
   const filtersForm = document.querySelector('#filters');
   const destinationBlocks = document.querySelectorAll('.destinations-options');
@@ -6,11 +8,11 @@ export function applyFilters() {
   if (!filtersForm || !cards.length) return;
 
   const getCheckedValues = (name) => {
-    return [...filtersForm.querySelectorAll(`input[name="${name}"]:checked`)].map((input) => input.value);
+    return [...filtersForm.querySelectorAll(input[name="${name}"]:checked)].map((input) => input.value);
   };
 
   const getValue = (name) => {
-    return filtersForm.querySelector(`input[name="${name}"]`)?.value?.trim() || '';
+    return filtersForm.querySelector(input[name="${name}"])?.value?.trim() || '';
   };
 
   const filterCards = () => {
@@ -25,7 +27,9 @@ export function applyFilters() {
       const continent = card.dataset.continent;
       const category = card.dataset.category;
       const stay = card.dataset.stay;
-      const pricePerDay = Number(card.dataset.pricePerDay || 0) / 100;
+
+      const { totalAmount } = calculatePriceBreakdown(card);
+      const totalPrice = totalAmount / 100;
 
       const matchesDestination =
         selectedDestinations.length === 0 || selectedDestinations.includes(continent);
@@ -37,10 +41,10 @@ export function applyFilters() {
         selectedStays.length === 0 || selectedStays.includes(stay);
 
       const matchesMinPrice =
-        !minPrice || pricePerDay >= Number(minPrice);
+        !minPrice || totalPrice >= Number(minPrice);
 
       const matchesMaxPrice =
-        !maxPrice || pricePerDay <= Number(maxPrice);
+        !maxPrice || totalPrice <= Number(maxPrice);
 
       const isVisible =
         matchesDestination &&
@@ -56,7 +60,10 @@ export function applyFilters() {
     });
 
     destinationBlocks.forEach((block) => {
-      const visibleCards = block.querySelectorAll('.card-item:not([style*="display: none"])');
+      const visibleCards = [...block.querySelectorAll('.card-item')].filter(
+        (item) => item.style.display !== 'none'
+      );
+
       block.style.display = visibleCards.length ? '' : 'none';
     });
   };
