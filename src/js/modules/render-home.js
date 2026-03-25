@@ -1,7 +1,7 @@
 import { Header } from '../components/header.js';
 import { HeroCarousel } from '../components/hero-carousel.js';
 import { FiltersPanel } from '../components/filters-panel.js';
-
+import { PricePopover } from '../components/price-popover.js';
 import { Footer } from '../components/footer.js';
 
 export function renderHome() {
@@ -22,7 +22,7 @@ export function renderHome() {
           <div class="all-info" id="destinations-sections"></div>
         </div>
 
-        
+        ${PricePopover()}
       </section>
     </main>
     ${Footer()}
