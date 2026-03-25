@@ -1,14 +1,15 @@
-import { Header } from '../components/header.js';
-import { HeroCarousel } from '../components/hero-carousel.js';
-import { FiltersPanel } from '../components/filters-panel.js';
-import { PricePopover } from '../components/price-popover.js';
 import { destinations } from '../../data/destinations.js';
 import { DestinationList } from '../components/destination-list.js';
+import { Footer } from '../components/footer.js';
+import { FiltersPanel } from '../components/filters-panel.js';
+import { Header } from '../components/header.js';
+import { HeroCarousel } from '../components/hero-carousel.js';
+import { PricePopover } from '../components/price-popover.js';
 import { accessibility } from './accessibility.js';
 import { applyFilters } from './apply-filters.js';
 import { initPricePopover } from './price-popover.js';
 import { updateCardDisplayedPrices } from './calculate-price.js';
-import { Footer } from '../components/footer.js';
+import { initHeroCarousel } from './hero-carousel.js';
 
 export function renderHome() {
   const app = document.querySelector('#app');
@@ -52,4 +53,5 @@ export function renderHome() {
   applyFilters();
   accessibility();
   initPricePopover();
+  initHeroCarousel();
 }
