@@ -2,6 +2,8 @@ import { Header } from '../components/header.js';
 import { HeroCarousel } from '../components/hero-carousel.js';
 import { FiltersPanel } from '../components/filters-panel.js';
 import { PricePopover } from '../components/price-popover.js';
+import { destinations } from '../../data/destinations.js';
+import { DestinationList } from '../components/destination-list.js';
 import { Footer } from '../components/footer.js';
 
 export function renderHome() {
@@ -26,5 +28,19 @@ export function renderHome() {
       </section>
     </main>
     ${Footer()}
+  `;
+
+  const destinationsSections = document.querySelector('#destinations-sections');
+
+  const africaItems = destinations.filter((item) => item.continent === 'africa');
+  const northAmericaItems = destinations.filter((item) => item.continent === 'namerica');
+  const asiaItems = destinations.filter((item) => item.continent === 'asia');
+  const europeItems = destinations.filter((item) => item.continent === 'europa');
+
+  destinationsSections.innerHTML = `
+    ${DestinationList('África', 'africa', africaItems)}
+    ${DestinationList('América del Norte', 'namerica', northAmericaItems)}
+    ${DestinationList('Asia', 'asia', asiaItems)}
+    ${DestinationList('Europa', 'europa', europeItems)}
   `;
 }
