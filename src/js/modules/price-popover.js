@@ -28,9 +28,10 @@ export function initPricePopover() {
     const rect = trigger.getBoundingClientRect();
     const panelWidth = 480;
     const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
 
-    let left = rect.left + window.scrollX;
-    const top = rect.bottom + window.scrollY + 12;
+    let left = rect.left;
+    let top = rect.bottom + 12;
 
     if (left + panelWidth > viewportWidth - 16) {
       left = viewportWidth - panelWidth - 16;
@@ -38,6 +39,10 @@ export function initPricePopover() {
 
     if (left < 16) {
       left = 16;
+    }
+
+    if (top > viewportHeight - 120) {
+      top = Math.max(16, rect.top - 260);
     }
 
     popover.style.setProperty('--popover-top', `${top}px`);
