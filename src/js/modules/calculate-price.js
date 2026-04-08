@@ -49,7 +49,7 @@ export function calculatePriceBreakdown(cardElement) {
 }
 
 export function updateCardDisplayedPrices() {
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.c-card');
 
   cards.forEach((card) => {
     const priceDisplay = card.querySelector('[data-price-display]');

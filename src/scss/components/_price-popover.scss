@@ -1,7 +1,7 @@
 @use '../tools/mixins' as *;
 @use '../settings/tokens' as *;
 
-.price-popover-cont {
+.c-price-popover {
   display: none;
   position: fixed;
   inset: 0;
@@ -12,7 +12,7 @@
     display: block;
   }
 
-  .price-popover__panel {
+  .c-price-popover__panel {
     position: absolute;
     top: var(--popover-top, 0);
     left: var(--popover-left, 0);
@@ -27,8 +27,8 @@
     pointer-events: auto;
   }
 
-  .price-popover__header,
-  .price-popover__footer {
+  .c-price-popover__header,
+  .c-price-popover__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +36,7 @@
     background-color: #fbf6f4;
   }
 
-  .price-popover__header {
+  .c-price-popover__header {
     border-bottom: 1px solid #e0d9e0;
 
     h5 {
@@ -46,7 +46,7 @@
     }
   }
 
-  .price-popover__footer {
+  .c-price-popover__footer {
     border-top: 1px solid #e0d9e0;
 
     span {
@@ -55,7 +55,7 @@
       line-height: 24px;
     }
 
-    .amount {
+    .c-price-popover__amount {
       font-weight: 700;
       font-size: 22px;
       line-height: 24px;
@@ -63,7 +63,7 @@
     }
   }
 
-  .price-popover__close {
+  .c-price-popover__close {
     background-color: transparent;
     border: 0;
     font-weight: 700;
@@ -72,7 +72,7 @@
     pointer-events: auto;
   }
 
-  .prices-cont {
+  .c-price-popover__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +81,7 @@
     padding: 24px;
     background-color: var(--bg);
 
-    .price-popover__destination {
+    .c-price-popover__destination {
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
@@ -96,13 +96,13 @@
         color: var(--brand);
       }
 
-      span.days {
+      .c-price-popover__destination-days {
         font-weight: 500;
         margin-left: 6px;
       }
     }
 
-    .price-popover__body {
+    .c-price-popover__body {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -110,7 +110,7 @@
       gap: 16px;
       width: 100%;
 
-      .row {
+      .c-price-popover__row {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -125,7 +125,7 @@
         text-align: left;
       }
 
-      .amount {
+      .c-price-popover__amount {
         font-weight: 700;
         font-size: 18px;
         line-height: 20px;
@@ -136,8 +136,8 @@
 }
 
 @include respond-max($bp-767) {
-  .price-popover-cont {
-    .price-popover__panel {
+  .c-price-popover {
+    .c-price-popover__panel {
       min-width: 100vw;
       height: 100dvh;
       top: 0;
@@ -145,7 +145,7 @@
       border-radius: 0;
     }
 
-    .price-popover__footer {
+    .c-price-popover__footer {
       background-color: transparent;
     }
   }

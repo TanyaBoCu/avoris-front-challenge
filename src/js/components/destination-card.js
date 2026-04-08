@@ -1,8 +1,8 @@
 export function DestinationCard(destination) {
   return `
-    <li class="card-item">
+    <li class="c-destination-list__item">
       <article
-        class="card"
+        class="c-card"
         data-id="${destination.id}"
         data-destination="${destination.country.toLowerCase()}"
         data-region="${destination.region.toLowerCase()}"
@@ -15,8 +15,8 @@ export function DestinationCard(destination) {
         data-currency="${destination.currency}"
         data-iva="${destination.iva}"
       >
-        <div class="card-media">
-          <figure class="card-figure">
+        <div class="c-card__media">
+          <figure class="c-card__figure">
             <img
               src="${destination.image}"
               alt="${destination.imageAlt}"
@@ -25,28 +25,28 @@ export function DestinationCard(destination) {
             >
           </figure>
 
-          <span class="badge">${destination.badge}</span>
+          <span class="c-card__badge">${destination.badge}</span>
         </div>
 
-        <div class="card-body">
-          <div class="info-card">
-            <p class="eyebrow">
-              <span class="country" data-country>${destination.country}</span>,
-              <span class="region" data-region>${destination.region}</span>
-              <span class="days"><span data-days>${destination.daysDefault}</span> día</span>
+        <div class="c-card__body">
+          <div class="c-card__content">
+            <p class="c-card__eyebrow">
+              <span class="c-card__country" data-country>${destination.country}</span>,
+              <span class="c-card__region" data-region>${destination.region}</span>
+              <span class="c-card__days"><span data-days>${destination.daysDefault}</span> día</span>
             </p>
 
-            <h5 class="card-title">${destination.title}</h5>
+            <h5 class="c-card__title">${destination.title}</h5>
           </div>
 
-          <div class="card-footer">
-            <div class="price" aria-live="polite">
-              <span class="from">Desde</span>
-              <span class="amount" data-price-display>248,00&nbsp;€</span>
-              <a class="breakdown" href="#">Ver desglose</a>
+          <div class="c-card__footer">
+            <div class="c-card__price" aria-live="polite">
+              <span class="c-card__from">Desde</span>
+              <span class="c-card__amount" data-price-display>248,00&nbsp;€</span>
+              <a class="c-card__breakdown" href="#">Ver desglose</a>
             </div>
 
-            <a class="btn-reservar" href="#">Reservar</a>
+            <a class="c-card__cta" href="#">Reservar</a>
           </div>
         </div>
       </article>

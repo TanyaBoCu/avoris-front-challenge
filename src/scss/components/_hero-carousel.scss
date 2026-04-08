@@ -1,7 +1,7 @@
 @use '../tools/mixins' as *;
 @use '../settings/tokens' as *;
 
-.hero-carousel {
+.c-hero {
   position: relative;
   width: 100%;
   height: 400px;
@@ -9,11 +9,11 @@
   overflow: hidden;
   background: var(--brand);
 
-  .slides {
+  .c-hero__slides {
     position: absolute;
     inset: 0;
 
-    .slide {
+    .c-hero__slide {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -30,7 +30,7 @@
     }
   }
 
-  .overlay {
+  .c-hero__overlay {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     padding: 0 74px;
     z-index: 2;
 
-    .titles-cont {
+    .c-hero__content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -49,7 +49,7 @@
       gap: 12px;
       text-align: center;
 
-      h1 {
+      .c-hero__title {
         font-family: var(--font-title);
         font-weight: 700;
         font-size: 30px;
@@ -58,7 +58,7 @@
         color: var(--bg);
       }
 
-      .subtitle {
+      .c-hero__subtitle {
         color: var(--bg);
         font-weight: 500;
         font-size: 20px;
@@ -67,7 +67,7 @@
       }
     }
 
-    .more-info {
+    .c-hero__link {
       @include flex-center;
       padding: 12px 40px;
       background: var(--accent);
@@ -85,7 +85,7 @@
     }
   }
 
-  .nav {
+  .c-hero__nav {
     position: absolute;
     @include flex-center;
     width: 40px;
@@ -99,7 +99,7 @@
     cursor: pointer;
     @include transition;
 
-    .arrow-icon {
+    .c-hero__arrow {
       position: relative;
 
       &::after {
@@ -117,15 +117,15 @@
       }
     }
 
-    &.prev { left: 2px; }
-    &.next { right: 2px; transform: translateY(-50%) rotate(180deg); }
+    &.c-hero__nav--prev { left: 2px; }
+    &.c-hero__nav--next { right: 2px; transform: translateY(-50%) rotate(180deg); }
 
     &:is(:hover, :focus-visible) {
       background-color: var(--brand);
     }
   }
 
-  .dots {
+  .c-hero__dots {
     position: absolute;
     display: flex;
     gap: 8px;
@@ -134,7 +134,7 @@
     transform: translateX(-50%);
     z-index: 3;
 
-    .dot {
+    .c-hero__dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -152,7 +152,7 @@
 }
 
 @include respond-max($bp-767) {
-  .hero-carousel {
+  .c-hero {
     margin-top: 56px;
   }
 }

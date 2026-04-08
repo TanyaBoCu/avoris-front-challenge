@@ -1,11 +1,11 @@
 export function initHeroCarousel() {
-  const hero = document.querySelector('.hero-carousel');
+  const hero = document.querySelector('.c-hero');
   if (!hero) return;
 
-  const slides = [...hero.querySelectorAll('.slide')];
-  const prevButton = hero.querySelector('.nav.prev');
-  const nextButton = hero.querySelector('.nav.next');
-  const dotsContainer = hero.querySelector('.dots');
+  const slides = [...hero.querySelectorAll('.c-hero__slide')];
+  const prevButton = hero.querySelector('.c-hero__nav--prev');
+  const nextButton = hero.querySelector('.c-hero__nav--next');
+  const dotsContainer = hero.querySelector('.c-hero__dots');
 
   if (!slides.length || !dotsContainer || !prevButton || !nextButton) return;
 
@@ -17,7 +17,7 @@ export function initHeroCarousel() {
       .map(
         (_, index) => `
           <button
-            class="dot ${index === currentIndex ? 'is-active' : ''}"
+            class="c-hero__dot ${index === currentIndex ? 'is-active' : ''}"
             type="button"
             aria-label="Ir a la diapositiva ${index + 1}"
             aria-selected="${index === currentIndex ? 'true' : 'false'}"
@@ -32,7 +32,7 @@ export function initHeroCarousel() {
       slide.classList.toggle('is-active', index === currentIndex);
     });
 
-    const dots = [...dotsContainer.querySelectorAll('.dot')];
+    const dots = [...dotsContainer.querySelectorAll('.c-hero__dot')];
     dots.forEach((dot, index) => {
       dot.classList.toggle('is-active', index === currentIndex);
       dot.setAttribute('aria-selected', String(index === currentIndex));
@@ -54,10 +54,10 @@ export function initHeroCarousel() {
   nextButton.addEventListener('click', goToNext);
 
   dotsContainer.addEventListener('click', (event) => {
-    const dot = event.target.closest('.dot');
+    const dot = event.target.closest('.c-hero__dot');
     if (!dot) return;
 
-    const dots = [...dotsContainer.querySelectorAll('.dot')];
+    const dots = [...dotsContainer.querySelectorAll('.c-hero__dot')];
     const dotIndex = dots.indexOf(dot);
     if (dotIndex >= 0) goToSlide(dotIndex);
   });

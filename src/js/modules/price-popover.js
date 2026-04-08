@@ -4,7 +4,7 @@ export function initPricePopover() {
   const popover = document.querySelector('#price-popover');
   if (!popover) return;
 
-  const closeButton = popover.querySelector('.price-popover__close');
+  const closeButton = popover.querySelector('.c-price-popover__close');
   const destinationField = popover.querySelector('[data-popover-destination]');
   const regionField = popover.querySelector('[data-popover-region]');
   const daysField = popover.querySelector('[data-popover-days]');
@@ -58,11 +58,11 @@ export function initPricePopover() {
   };
 
   document.addEventListener('click', (event) => {
-    const breakdownLink = event.target.closest('.breakdown');
+    const breakdownLink = event.target.closest('.c-card__breakdown');
 
     if (breakdownLink) {
       event.preventDefault();
-      const card = breakdownLink.closest('.card');
+      const card = breakdownLink.closest('.c-card');
       if (!card) return;
 
       openPopover(breakdownLink, card);

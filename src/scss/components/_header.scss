@@ -1,7 +1,7 @@
 @use '../tools/mixins' as *;
 @use '../settings/tokens' as *;
 
-.site-header {
+.c-header {
   position: fixed;
   width: 100%;
   height: 80px;
@@ -11,7 +11,7 @@
   @include flex-center;
 }
 
-.header-inner {
+.c-header__inner {
   width: 100%;
   height: 80px;
   padding: 0 32px;
@@ -21,7 +21,7 @@
   gap: 32px;
 }
 
-.brand {
+.c-header__brand {
   @include flex-center;
 
   img {
@@ -29,7 +29,7 @@
   }
 }
 
-.primary-nav {
+.c-header__nav {
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -65,7 +65,7 @@
     text-decoration: none;
     cursor: pointer;
 
-    .nav-icon {
+    .c-header__nav-icon {
       position: relative;
       margin-left: 30px;
 
@@ -82,9 +82,9 @@
         background-size: contain;
       }
 
-      &.adventure::after { background-image: url("/img/adventure.svg"); }
-      &.destinations::after { background-image: url("/img/world.svg"); }
-      &.accommodation::after { background-image: url("/img/hotel.svg"); }
+      &.c-header__nav-icon--adventure::after { background-image: url("/img/adventure.svg"); }
+      &.c-header__nav-icon--destinations::after { background-image: url("/img/world.svg"); }
+      &.c-header__nav-icon--accommodation::after { background-image: url("/img/hotel.svg"); }
     }
 
     &::after {
@@ -121,7 +121,7 @@
   }
 }
 
-.btn-reserva {
+.c-header__cta {
   @include flex-center;
   padding: 12px 40px;
   background-color: var(--brand);
@@ -137,7 +137,7 @@
   }
 }
 
-.nav-toggle {
+.c-header__toggle {
   position: relative;
   display: none;
   justify-content: center;
@@ -147,7 +147,7 @@
   background-color: var(--bg);
   border: none;
 
-  .nav-toggle-bar,
+  .c-header__toggle-bar,
   &::before,
   &::after {
     content: "";
@@ -161,7 +161,7 @@
     @include transition;
   }
 
-  .nav-toggle-bar {
+  .c-header__toggle-bar {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -170,7 +170,7 @@
   &::after { bottom: 0; }
 
   &[aria-expanded="true"] {
-    .nav-toggle-bar { opacity: 0; }
+    .c-header__toggle-bar { opacity: 0; }
 
     &::before {
       top: 50%;
@@ -185,26 +185,26 @@
 }
 
 @include respond-max($bp-1024) {
-  .header-inner {
+  .c-header__inner {
     padding: 0 24px;
     gap: 24px;
   }
 
-  .primary-nav ul {
+  .c-header__nav ul {
     gap: 16px;
   }
 }
 
 @include respond-max($bp-964) {
-  .btn-reserva {
+  .c-header__cta {
     display: none;
   }
 
-  .nav-toggle {
+  .c-header__toggle {
     display: flex;
   }
 
-  .primary-nav {
+  .c-header__nav {
     position: absolute;
     width: 100vw;
     height: 50dvh;
@@ -241,8 +241,8 @@
 }
 
 @include respond-max($bp-767) {
-  .site-header { height: 56px; }
-  .header-inner { height: 56px; }
-  .brand img { width: 108px; }
-  .primary-nav { top: 56px; }
+  .c-header { height: 56px; }
+  .c-header__inner { height: 56px; }
+  .c-header__brand img { width: 108px; }
+  .c-header__nav { top: 56px; }
 }

@@ -1,13 +1,13 @@
 @use '../tools/mixins' as *;
 
-.filter-group {
+.c-filter-group {
   padding: 8px 24px;
 
-  &.filter-dest { padding: 20px 24px 8px; }
-  &.filter-dat { padding: 8px 24px 20px; }
+  &.c-filter-group--destinations { padding: 20px 24px 8px; }
+  &.c-filter-group--dates { padding: 8px 24px 20px; }
 }
 
-.filter-summary {
+.c-filter-group__summary {
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -31,7 +31,7 @@
     @include transition;
   }
 
-  .icon {
+  .c-filter-group__icon {
     width: 24px;
     height: 24px;
     background-repeat: no-repeat;
@@ -54,8 +54,8 @@
   }
 }
 
-.filter-group[open] {
-  .filter-summary {
+.c-filter-group[open] {
+  .c-filter-group__summary {
     &::before {
       background-image: url("/img/arrow-f-hover.svg");
       transform: translateY(-50%) rotate(90deg);
@@ -65,7 +65,7 @@
   }
 }
 
-.checklist {
+.c-filter-group__list {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,7 +73,7 @@
   padding: 0 16px;
 }
 
-.check {
+.c-filter-group__item {
   position: relative;
   display: flex;
   justify-content: center;
@@ -88,8 +88,8 @@
     cursor: pointer;
   }
 
-  .label,
-  .label span {
+  .c-filter-group__label,
+  .c-filter-group__label span {
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
@@ -102,7 +102,7 @@
     pointer-events: none;
   }
 
-  .box {
+  .c-filter-group__box {
     position: relative;
     display: flex;
     justify-content: center;
@@ -115,7 +115,7 @@
     @include transition;
   }
 
-  input:checked + .box {
+  input:checked + .c-filter-group__box {
     background-color: var(--accent);
 
     &::after {
@@ -130,7 +130,7 @@
     }
   }
 
-  .icon-info {
+  .c-filter-group__info-icon {
     position: relative;
     width: 12px;
     height: 12px;
@@ -141,7 +141,7 @@
     cursor: pointer;
     @include transition;
 
-    .info-check {
+    .c-filter-group__info-content {
       position: absolute;
       display: flex;
       justify-content: center;
@@ -178,7 +178,7 @@
       }
     }
 
-    &:is(:hover, :focus-visible) .info-check {
+    &:is(:hover, :focus-visible) .c-filter-group__info-content {
       visibility: visible;
     }
   }

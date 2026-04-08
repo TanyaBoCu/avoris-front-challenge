@@ -1,198 +1,158 @@
 @use '../tools/mixins' as *;
 @use '../settings/tokens' as *;
 
-.select-cards .filters-destinations .all-info .destinations-options {
+.c-card {
+  position: relative;
+}
+
+.c-card__media {
+  position: relative;
+
+  .c-card__figure {
+    aspect-ratio: 264 / 188;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .c-card__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--accent);
+    padding: 4px 12px;
+    border-radius: 40px;
+    color: var(--txt);
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.c-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.c-card__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 8px;
+  padding: 16px;
+}
+
+.c-card__eyebrow,
+.c-card__eyebrow span {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--brand);
+}
+
+.c-card__days {
+  color: var(--txt);
+}
+
+.c-card__title {
+  font-weight: 700;
+  color: var(--txt);
+}
+
+.c-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  gap: 16px;
+  gap: 20px;
+  padding: 16px;
+  background-color: #fbf6f4;
 }
 
-.destinations-options {
-  h4 {
-    font-family: var(--font-title);
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 24px;
-  }
+.c-card__price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  color: var(--txt);
+  text-align: left;
+}
 
-  ul.cards-grid {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
-    list-style: none;
-    width: 100%;
+.c-card__from {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
 
-    li.card-item {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      align-items: stretch;
-      background: var(--bg);
-      color: var(--txt);
-      border-radius: var(--radius);
-      box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-    }
+.c-card__amount {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 24px;
+}
 
-    .card-media {
-      position: relative;
-      
-      .card-figure {
-        aspect-ratio: 264 / 188;
-        overflow: hidden;
+.c-card__breakdown {
+  position: relative;
+  width: max-content;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: underline;
+  color: var(--brand);
+  margin-right: 17px;
 
-        img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-      }
-
-      .badge {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: var(--accent);
-        padding: 4px 12px;
-        border-radius: 40px;
-        color: var(--txt);
-        font-weight: 800;
-        font-size: 12px;
-        line-height: 16px;
-      }
-    }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url("/img/arrow-a.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    @include transition;
   }
 }
 
-.card-item {
-  .card {
-    position: relative;
-  }
+.c-card__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  border: 1px solid var(--brand);
+  border-radius: var(--radius-btn);
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--brand);
+  @include transition;
 
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .info-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 16px;
-
-      p,
-      p span {
-        font-family: var(--font-title);
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 18px;
-        color: var(--brand);
-      }
-
-      p span.days {
-        color: var(--txt);
-      }
-
-      h5 {
-        font-weight: 700;
-        color: var(--txt);
-      }
-    }
-
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      gap: 20px;
-      padding: 16px;
-      background-color: #fbf6f4;
-
-      .price {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2px;
-        color: var(--txt);
-        text-align: left;
-
-        .from {
-          font-weight: 500;
-          font-size: 12px;
-          line-height: 16px;
-        }
-
-        .amount {
-          font-weight: 700;
-          font-size: 22px;
-          line-height: 24px;
-        }
-
-        .breakdown {
-          position: relative;
-          width: max-content;
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 16px;
-          text-decoration: underline;
-          color: var(--brand);
-          margin-right: 17px;
-
-          &::after {
-            position: absolute;
-            content: "";
-            width: 9px;
-            height: 9px;
-            right: -13px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-image: url("/img/arrow-a.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            @include transition;
-          }
-        }
-      }
-
-      .btn-reservar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 24px;
-        border: 1px solid var(--brand);
-        border-radius: var(--radius-btn);
-        background: var(--bg);
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: var(--brand);
-        @include transition;
-
-        &:is(:hover, :focus-visible) {
-          background: var(--brand);
-          color: var(--bg);
-        }
-      }
-    }
+  &:is(:hover, :focus-visible) {
+    background: var(--brand);
+    color: var(--bg);
   }
 }
 
 @include respond-max($bp-964) {
-  .destinations-options ul.cards-grid {
+  .o-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @include respond-max($bp-767) {
-  .destinations-options ul.cards-grid {
+  .o-cards-grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }

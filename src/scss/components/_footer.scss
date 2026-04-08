@@ -1,6 +1,6 @@
 @use '../tools/mixins' as *;
 
-.site-footer {
+.c-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@
   background-color: #fbf6f4;
   border-top: 1px solid #faf7f5;
 
-  .footer-top {
+  .c-footer__top {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
     padding: 24px;
   }
 
-  .brand {
+  .c-footer__brand {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
     }
   }
 
-  .footer-bottom {
+  .c-footer__bottom {
     display: flex;
     justify-content: center;
     align-items: center;

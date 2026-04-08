@@ -1,9 +1,9 @@
 export function accessibility() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const primaryNav = document.querySelector('.primary-nav');
-  const filtersToggle = document.querySelector('.filters-toggle');
+  const navToggle = document.querySelector('.c-header__toggle');
+  const primaryNav = document.querySelector('.c-header__nav');
+  const filtersToggle = document.querySelector('.c-filters-panel__toggle');
   const filtersDrawer = document.querySelector('#filters-drawer');
-  const filtersClose = document.querySelector('.filters-close');
+  const filtersClose = document.querySelector('.c-filters-panel__close');
 
   if (navToggle && primaryNav) {
     navToggle.addEventListener('click', () => {
@@ -22,7 +22,7 @@ export function accessibility() {
       filtersToggle.setAttribute('aria-expanded', String(nextState));
       filtersDrawer.dataset.open = String(nextState);
 
-      const label = filtersToggle.querySelector('.label');
+      const label = filtersToggle.querySelector('.c-filters-panel__toggle-label');
       if (label) {
         label.textContent = nextState
           ? filtersToggle.dataset.openText
@@ -36,7 +36,7 @@ export function accessibility() {
       filtersToggle.setAttribute('aria-expanded', 'false');
       filtersDrawer.dataset.open = 'false';
 
-      const label = filtersToggle.querySelector('.label');
+      const label = filtersToggle.querySelector('.c-filters-panel__toggle-label');
       if (label) {
         label.textContent = filtersToggle.dataset.closedText;
       }

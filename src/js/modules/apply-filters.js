@@ -2,8 +2,8 @@ import { calculatePriceBreakdown } from './calculate-price.js';
 
 export function applyFilters() {
   const filtersForm = document.querySelector('#filters');
-  const destinationBlocks = document.querySelectorAll('.destinations-options');
-  const cards = document.querySelectorAll('.card');
+  const destinationBlocks = document.querySelectorAll('.c-destination-list');
+  const cards = document.querySelectorAll('.c-card');
 
   if (!filtersForm || !cards.length) return;
 
@@ -53,14 +53,14 @@ export function applyFilters() {
         matchesMinPrice &&
         matchesMaxPrice;
 
-      const cardItem = card.closest('.card-item');
+      const cardItem = card.closest('.c-destination-list__item');
       if (cardItem) {
         cardItem.style.display = isVisible ? '' : 'none';
       }
     });
 
     destinationBlocks.forEach((block) => {
-      const visibleCards = [...block.querySelectorAll('.card-item')].filter(
+      const visibleCards = [...block.querySelectorAll('.c-destination-list__item')].filter(
         (item) => item.style.display !== 'none'
       );
 

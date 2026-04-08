@@ -1,7 +1,7 @@
 @use '../tools/mixins' as *;
 @use '../settings/tokens' as *;
 
-.filters-toggle {
+.c-filters-panel__toggle {
   @include flex-center;
   display: none;
   gap: 12px;
@@ -12,7 +12,7 @@
   cursor: pointer;
   @include transition;
 
-  .icon::before {
+  .c-filters-panel__toggle-icon::before {
     position: relative;
     content: "";
     display: flex;
@@ -33,11 +33,11 @@
   }
 }
 
-.filters-close {
+.c-filters-panel__close {
   display: none;
 }
 
-.select-cards {
+.c-destinations-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,51 +46,19 @@
   padding: 72px 32px;
 }
 
-.titles-sections {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-
-  h2 {
-    font-family: var(--font-title);
-    font-weight: 700;
-    font-size: var(--fs-title-h2);
-    line-height: var(--lh-title-h2);
-    text-align: center;
-    color: var(--title);
-  }
-
-  h3 {
-    font-weight: 400;
-    font-size: var(--fs-title-h3);
-    line-height: var(--lh-title-h3);
-    text-align: center;
-    color: var(--title-secondary);
-  }
-}
-
-.select-cards .filters-destinations {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 24px;
-  width: 100%;
-  max-width: 1128px;
-
-  .menu-filters {
+.o-sidebar-layout {
+  .c-filters-panel {
     min-width: 264px;
     max-width: 264px;
     flex: 1;
     padding-top: 40px;
   }
 
-  .filters-form {
+  .c-filters-panel__form {
     background-color: #fbf6f4;
     border-radius: 24px;
 
-    .filters-title {
+    .c-filters-panel__title {
       padding: 32px 24px 24px;
       border-bottom: 1px solid #e0d9e0;
       font-family: var(--font-title);
@@ -100,15 +68,15 @@
       text-align: center;
     }
 
-    .filter-content {
+    .c-filter-group__content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
     }
 
-    .price-fields,
-    .dates {
+    .c-filters-panel__price-fields,
+    .c-filters-panel__dates {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -117,8 +85,8 @@
       padding: 12px 0;
     }
 
-    label.pill-input,
-    .date-field input {
+    .c-filters-panel__pill-input,
+    .c-filters-panel__date-field input {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -128,8 +96,8 @@
       background-color: var(--bg);
     }
 
-    label.pill-input {
-      .pill-icon {
+    .c-filters-panel__pill-input {
+      .c-filters-panel__pill-icon {
         width: 18px;
         height: 18px;
         background-image: url("/img/price-primary.svg");
@@ -140,19 +108,19 @@
       }
     }
 
-    .pill-input input {
+    .c-filters-panel__pill-input input {
       width: 100%;
       border: none;
       background-color: transparent;
       color: var(--brand);
     }
 
-    .date-field,
-    .date-field input {
+    .c-filters-panel__date-field,
+    .c-filters-panel__date-field input {
       width: 100%;
     }
 
-    .date-field {
+    .c-filters-panel__date-field {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -161,38 +129,29 @@
     }
   }
 
-  .all-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    width: 100%;
-    gap: 32px;
-  }
 }
 
-.filters-form {
-  .filter-dest .filter-summary .icon { background-image: url("/img/world.svg"); }
-  .filter-adv .filter-summary .icon { background-image: url("/img/adventure.svg"); }
-  .filter-acc .filter-summary .icon { background-image: url("/img/hotel.svg"); }
-  .filter-pri .filter-summary .icon { background-image: url("/img/price.svg"); }
-  .filter-dat .filter-summary .icon { background-image: url("/img/calendar.svg"); }
+.c-filters-panel__form {
+  .c-filter-group--destinations .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/world.svg"); }
+  .c-filter-group--adventure .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/adventure.svg"); }
+  .c-filter-group--accommodation .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/hotel.svg"); }
+  .c-filter-group--price .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/price.svg"); }
+  .c-filter-group--dates .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/calendar.svg"); }
 
-  .filter-dest.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
-  .filter-dest.filter-group[open] .filter-summary .icon { background-image: url("/img/world-hover.svg"); }
+  .c-filter-group--destinations.c-filter-group .c-filter-group__summary:is(:hover, :focus-visible) .c-filter-group__icon,
+  .c-filter-group--destinations.c-filter-group[open] .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/world-hover.svg"); }
 
-  .filter-adv.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
-  .filter-adv.filter-group[open] .filter-summary .icon { background-image: url("/img/adventure-hover.svg"); }
+  .c-filter-group--adventure.c-filter-group .c-filter-group__summary:is(:hover, :focus-visible) .c-filter-group__icon,
+  .c-filter-group--adventure.c-filter-group[open] .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/adventure-hover.svg"); }
 
-  .filter-acc.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
-  .filter-acc.filter-group[open] .filter-summary .icon { background-image: url("/img/hotel-hover.svg"); }
+  .c-filter-group--accommodation.c-filter-group .c-filter-group__summary:is(:hover, :focus-visible) .c-filter-group__icon,
+  .c-filter-group--accommodation.c-filter-group[open] .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/hotel-hover.svg"); }
 
-  .filter-pri.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
-  .filter-pri.filter-group[open] .filter-summary .icon { background-image: url("/img/price-hover.svg"); }
+  .c-filter-group--price.c-filter-group .c-filter-group__summary:is(:hover, :focus-visible) .c-filter-group__icon,
+  .c-filter-group--price.c-filter-group[open] .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/price-hover.svg"); }
 
-  .filter-dat.filter-group .filter-summary:is(:hover, :focus-visible) .icon,
-  .filter-dat.filter-group[open] .filter-summary .icon { background-image: url("/img/calendar-hover.svg"); }
+  .c-filter-group--dates.c-filter-group .c-filter-group__summary:is(:hover, :focus-visible) .c-filter-group__icon,
+  .c-filter-group--dates.c-filter-group[open] .c-filter-group__summary .c-filter-group__icon { background-image: url("/img/calendar-hover.svg"); }
 
   a.see-more {
     font-weight: 600;
@@ -206,14 +165,14 @@
 }
 
 @include respond-max($bp-1200) {
-  .filters-toggle { display: flex; }
+  .c-filters-panel__toggle { display: flex; }
 
-  .select-cards .filters-destinations {
+  .o-sidebar-layout {
     position: relative;
     flex-direction: column;
     align-items: flex-start;
 
-    .menu-filters {
+    .c-filters-panel {
       position: absolute;
       min-width: 300px;
       max-width: 300px;
@@ -230,7 +189,7 @@
     }
   }
 
-  #filters-drawer .filters-close {
+  #filters-drawer .c-filters-panel__close {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -247,13 +206,13 @@
     z-index: 1;
   }
 
-  #filters-drawer form {
+  #filters-drawer .c-filters-panel__form {
     height: 100%;
     padding: 0;
     border-radius: 0;
   }
 
-  .select-cards .filters-destinations .filters-form .filters-title {
+  .o-sidebar-layout .c-filters-panel__form .c-filters-panel__title {
     text-align: left;
   }
 
@@ -263,19 +222,19 @@
     transform: translateX(0);
   }
 
-  .select-cards {
+  .c-destinations-section {
     padding: 72px 24px;
   }
 }
 
 @include respond-max($bp-1024) {
-  .select-cards .filters-destinations .menu-filters {
+  .o-sidebar-layout .c-filters-panel {
     left: -24px;
   }
 }
 
 @include respond-max($bp-767) {
-  .select-cards .filters-destinations {
+  .o-sidebar-layout {
     align-items: center;
   }
 }

@@ -61,15 +61,15 @@ function getHomeTemplate() {
     ${Header()}
     <main id="main" tabindex="-1">
       ${HeroCarousel()}
-      <section id="destinations-cards" class="select-cards">
-        <div class="titles-sections">
-          <h2>Vive tus propias aventuras</h2>
-          <h3>Para los que les gusta explorar y conocer mundo sin complejos</h3>
+      <section id="destinations-cards" class="c-destinations-section">
+        <div class="o-section-heading">
+          <h2 class="o-section-heading__title">Vive tus propias aventuras</h2>
+          <h3 class="o-section-heading__subtitle">Para los que les gusta explorar y conocer mundo sin complejos</h3>
         </div>
 
-        <div class="filters-destinations">
+        <div class="o-sidebar-layout">
           ${FiltersPanel()}
-          <div class="all-info" id="destinations-sections"></div>
+          <div class="o-stack" id="destinations-sections"></div>
         </div>
 
         ${PricePopover()}
