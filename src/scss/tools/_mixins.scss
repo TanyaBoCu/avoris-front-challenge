@@ -15,12 +15,6 @@
   transition: #{$props} #{$time} #{$ease};
 }
 
-@mixin respond-max($bp) {
-  @media (max-width: $bp) {
-    @content;
-  }
-}
-
 @mixin respond-max($breakpoint) {
   @media (max-width: $breakpoint) {
     @content;
