@@ -1,102 +1,86 @@
-# Avoris Front Challenge
+﻿# Avoris Front Challenge
 
-Prueba técnica de maquetación y desarrollo front-end realizada con una estructura modular y orientada a componentes.
+Esta es mi propuesta para la prueba técnica de maquetación y desarrollo front-end.
 
-## Descripción
+He intentado plantearla con una estructura clara, separando la parte visual de la lógica y trabajando con componentes para que el código sea más fácil de leer y mantener.
 
-Este proyecto reproduce una landing de viajes con foco en:
+## Qué incluye
 
-- maquetación responsive
-- estructura ordenada y mantenible
-- separación de componentes
-- datos mockeados fuera del HTML
-- estilos organizados con Sass
-- pequeñas interacciones y lógica en JavaScript
+- Maquetación responsive
+- Estructura modular en JavaScript
+- Estilos organizados con Sass
+- Datos mockeados fuera del HTML
+- Filtros dinámicos
+- Actualización de precios según fechas
+- Carrusel en el hero
+- Popover con desglose de precio
+- Algunos detalles básicos de accesibilidad
 
-La implementación se ha planteado con una arquitectura clara para facilitar la escalabilidad y el mantenimiento del código.
-
-## Funcionalidades implementadas
-
-- Header responsive con navegación adaptada a distintos tamaños de pantalla
-- Hero principal con carrusel, navegación anterior/siguiente y dots
-- Bloque de filtros lateral responsive
-- Filtros dinámicos por:
-  - destino
-  - tipo de aventura
-  - alojamiento
-  - precio mínimo y máximo
-- Actualización dinámica del precio según rango de fechas seleccionado
-- Cards de destinos renderizadas desde datos mockeados
-- Popover de desglose de precio con cálculo de base, IVA y total
-- Estructura separada por componentes, módulos y utilidades
-- Mejoras básicas de accesibilidad:
-  - skip link
-  - foco visible
-  - controles interactivos accesibles
-
-## Stack usado
+## Stack
 
 - HTML
-- Sass (SCSS)
+- SCSS / Sass
 - JavaScript modular
 - Vite
 
-## Estructura del proyecto
+## Estructura
 
-src
+El proyecto está organizado principalmente en:
 
-├─ data
+- `src/data` para los datos mockeados
+- `src/js/components` para los componentes
+- `src/js/modules` para la lógica de comportamiento
+- `src/js/utils` para utilidades
+- `src/scss` para la organización de estilos
 
-├─ js
+Dentro de `scss` he separado settings, tools, generic, elements, objects, components y utilities para mantener una estructura más ordenada.
 
-│  ├─ components
+## Funcionalidades principales
 
-│  ├─ modules
-
-│  └─ utils
-
-├─ scss
-
-│  ├─ settings
-
-│  ├─ tools
-
-│  ├─ generic
-
-│  ├─ elements
-
-│  ├─ objects
-
-│  ├─ components
-
-│  └─ utilities
-
-├─ main.js
+- Header responsive
+- Hero con carrusel
+- Filtros laterales adaptados a distintas resoluciones
+- Tarjetas de destinos renderizadas desde datos mock
+- Cálculo dinámico del precio final
+- Popover con el detalle del precio
+- Skip link y focus visible en elementos interactivos
 
 ## Cómo ejecutar el proyecto
 
-- Instalar dependencias:
+Instalar dependencias:
+
+```bash
 npm install
+```
 
-- Levantar entorno de desarrollo:
+Levantar entorno de desarrollo:
+
+```bash
 npm run dev
+```
 
-- Generar build de producción:
+Generar build:
+
+```bash
 npm run build
+```
 
-- Previsualizar build:
+Previsualizar build:
+
+```bash
 npm run preview
+```
 
-## Decisiones de Implementación
+Lanzar tests:
 
-- *Componentes Modulares:* Cada sección de la UI (carrusel, filtros, cards) se implementó como un componente independiente en la carpeta js/components, lo que facilita el mantenimiento y la reutilización.
+```bash
+npm run test
+```
 
-- *Filtros Dinámicos:* Se desarrolló una lógica de filtrado en tiempo real. Los destinos se actualizan según criterios (precio, fechas, categorías) sin necesidad de recargar la página.
+## Enfoque
 
-- *Accesibilidad:* Se incluyeron mejoras de accesibilidad como skip links, manejo de focus, y atributos ARIA, para asegurar una experiencia inclusiva.
+He intentado que la prueba no se quedara solo en maquetación, sino también en una base de código ordenada.
 
-- *Popover de Precios:* Se implementó un popover interactivo que muestra el desglose de precios. Funciona tanto en escritorio como en móvil.
+Por eso he separado la parte de datos, la generación de componentes, la lógica de filtros y el cálculo de precios, para que cada parte tenga una responsabilidad más clara.
 
-- *Carrusel Interactivo:* El carrusel del hero se controla con botones y dots, haciendo la experiencia más atractiva.
-
-Para ver el proyecto, seguir las instrucciones de ejecución.
+También he intentado mantener una nomenclatura consistente en estilos y una estructura lo bastante limpia como para poder escalarla sin mezclar demasiado el código.
