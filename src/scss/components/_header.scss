@@ -4,7 +4,7 @@
 .site-header {
   position: fixed;
   width: 100%;
-  min-height: 80px;
+  height: 80px;
   inset: 0 0 auto 0;
   z-index: 1000;
   background-color: var(--bg);
@@ -210,11 +210,12 @@
     height: 50dvh;
     top: 80px;
     left: 0;
-    bottom: 0;
     background-color: #faf7f5;
     transform: translateY(-100%);
     opacity: 0;
-    overflow: auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     pointer-events: none;
     @include transition;
 
@@ -240,7 +241,7 @@
 }
 
 @include respond-max($bp-767) {
-  .site-header { min-height: 56px; }
+  .site-header { height: 56px; }
   .header-inner { height: 56px; }
   .brand img { width: 108px; }
   .primary-nav { top: 56px; }
