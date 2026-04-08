@@ -1,4 +1,4 @@
-import { calculatePriceBreakdown } from './calculate-price.js';
+﻿import { calculatePriceBreakdown } from './calculate-price.js';
 
 export function initPricePopover() {
   const popover = document.querySelector('#price-popover');

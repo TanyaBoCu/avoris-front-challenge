@@ -1,4 +1,4 @@
-import { formatPrice } from '../utils/format-price.js';
+﻿import { formatPrice } from '../utils/format-price.js';
 
 function getSelectedDays() {
   const startInput = document.querySelector('input[name="date-start"]');
@@ -59,7 +59,7 @@ export function updateCardDisplayedPrices() {
 
     const { days, formattedTotal } = calculatePriceBreakdown(card);
 
-    priceDisplay.innerHTML = formattedTotal.replace('€', '&nbsp;€');
+    priceDisplay.textContent = formattedTotal;
 
     if (daysDisplay) {
       daysDisplay.textContent = String(days);

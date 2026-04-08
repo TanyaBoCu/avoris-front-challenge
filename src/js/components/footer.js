@@ -1,4 +1,4 @@
-export function Footer() {
+﻿export function Footer() {
   return `
     <footer class="c-footer" role="contentinfo">
       <div class="c-footer__top">
@@ -8,7 +8,7 @@ export function Footer() {
       </div>
 
       <div class="c-footer__bottom">
-        <p>©2024 Waveless · Todos los derechos reservados.</p>
+        <p>&copy;2024 Waveless &middot; Todos los derechos reservados.</p>
       </div>
     </footer>
   `;

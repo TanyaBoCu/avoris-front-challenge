@@ -1,4 +1,4 @@
-export const destinations = [
+﻿export const destinations = [
   {
     id: 'oferta-001',
     country: 'Marruecos',

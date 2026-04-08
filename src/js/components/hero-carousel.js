@@ -1,8 +1,8 @@
-import { heroSlides } from '../../data/hero-slides.js';
+﻿import { heroSlides } from '../../data/hero-slides.js';
 
 export function HeroCarousel() {
   return `
-    <section id="hero-carousel" class="c-hero" aria-label="Promoción destacada">
+    <section id="hero-carousel" class="c-hero" aria-label="Promoci&oacute;n destacada">
       <div class="c-hero__slides" aria-live="off">
         ${heroSlides.map((slide, index) => `
           <img
@@ -21,7 +21,7 @@ export function HeroCarousel() {
           <p class="c-hero__subtitle">Si te va la aventura, no te lo puedes perder</p>
         </div>
 
-        <a href="#mas-info" class="c-hero__link">Más información</a>
+        <a href="#mas-info" class="c-hero__link">M&aacute;s informaci&oacute;n</a>
       </div>
 
       <button class="c-hero__nav c-hero__nav--prev" type="button" aria-label="Anterior">

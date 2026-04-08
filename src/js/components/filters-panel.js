@@ -1,13 +1,13 @@
-import { filters } from '../../data/filters.js';
+﻿import { filters } from '../../data/filters.js';
 import { FilterGroup } from './filter-group.js';
 
 export function FiltersPanel() {
   return `
     <div class="c-filters-panel" id="filters-drawer">
-      <button class="c-filters-panel__close" type="button" aria-label="Cerrar filtros">×</button>
+      <button class="c-filters-panel__close" type="button" aria-label="Cerrar filtros">&times;</button>
 
       <form class="c-filters-panel__form" id="filters" novalidate>
-        <h4 class="c-filters-panel__title">Filtrar mi búsqueda</h4>
+        <h4 class="c-filters-panel__title">Filtrar mi b&uacute;squeda</h4>
 
         ${FilterGroup({
           groupClass: 'c-filter-group--destinations',
@@ -41,12 +41,12 @@ export function FiltersPanel() {
           <div class="c-filter-group__content c-filters-panel__price-fields">
             <label class="c-filters-panel__pill-input">
               <span class="c-filters-panel__pill-icon" aria-hidden="true"></span>
-              <input type="number" inputmode="numeric" name="price-min" placeholder="Mínimo" min="0" step="1">
+              <input type="number" inputmode="numeric" name="price-min" placeholder="M&iacute;nimo" min="0" step="1">
             </label>
 
             <label class="c-filters-panel__pill-input">
               <span class="c-filters-panel__pill-icon" aria-hidden="true"></span>
-              <input type="number" inputmode="numeric" name="price-max" placeholder="Máximo" min="0" step="1">
+              <input type="number" inputmode="numeric" name="price-max" placeholder="M&aacute;ximo" min="0" step="1">
             </label>
           </div>
         </details>

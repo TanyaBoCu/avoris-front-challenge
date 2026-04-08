@@ -1,4 +1,4 @@
-import { destinations } from '../../data/destinations.js';
+﻿import { destinations } from '../../data/destinations.js';
 import { DestinationList } from '../components/destination-list.js';
 import { FiltersPanel } from '../components/filters-panel.js';
 import { Footer } from '../components/footer.js';
@@ -22,12 +22,12 @@ function renderDestinationSections() {
 
   const sections = [
     {
-      title: 'África',
+      title: '&Aacute;frica',
       group: 'africa',
       items: getDestinationsByContinent('africa')
     },
     {
-      title: 'América del Norte',
+      title: 'Am&eacute;rica del Norte',
       group: 'namerica',
       items: getDestinationsByContinent('namerica')
     },

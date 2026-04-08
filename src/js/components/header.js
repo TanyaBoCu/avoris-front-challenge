@@ -1,4 +1,4 @@
-export function Header() {
+﻿export function Header() {
   return `
     <a class="skip-link" href="#main">Saltar al contenido</a>
 
@@ -8,7 +8,7 @@ export function Header() {
           <img src="/img/logo.png" alt="logo Waveless">
         </a>
 
-        <button class="c-header__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu">
+        <button class="c-header__toggle" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="site-menu">
           <span class="c-header__toggle-bar" aria-hidden="true"></span>
         </button>
 

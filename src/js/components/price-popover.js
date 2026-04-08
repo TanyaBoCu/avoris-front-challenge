@@ -1,11 +1,11 @@
-export function PricePopover() {
+﻿export function PricePopover() {
   return `
     <div id="price-popover" class="c-price-popover" aria-hidden="true">
       <div class="c-price-popover__panel" role="dialog" aria-labelledby="price-popover-title">
         <div class="c-price-popover__header">
           <h5 id="price-popover-title">Desglose de precios</h5>
 
-          <button type="button" class="c-price-popover__close" aria-label="Cerrar">×</button>
+          <button type="button" class="c-price-popover__close" aria-label="Cerrar">&times;</button>
         </div>
 
         <div class="c-price-popover__content">

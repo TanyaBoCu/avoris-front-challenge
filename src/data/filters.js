@@ -1,4 +1,4 @@
-export const filters = {
+﻿export const filters = {
   destinations: [
     { label: 'África', value: 'africa', info: 'Lorem ipsum' },
     { label: 'Asia', value: 'asia', info: 'Lorem ipsum' },

@@ -1,4 +1,4 @@
-export function FilterGroup({
+﻿export function FilterGroup({
   groupClass = '',
   title,
   name,
@@ -14,9 +14,8 @@ export function FilterGroup({
       </summary>
 
       <div class="c-filter-group__content">
+        ${labelledBy ? `<span id="${labelledBy}" class="visually-hidden">Filtrar por ${title.toLowerCase()}</span>` : ''}
         <ul class="c-filter-group__list" ${labelledBy ? `role="group" aria-labelledby="${labelledBy}"` : ''}>
-          ${labelledBy ? `<span id="${labelledBy}" class="visually-hidden">Filtrar por ${title.toLowerCase()}</span>` : ''}
-
           ${options.map((option) => `
             <li class="c-filter-group__item">
               <label>

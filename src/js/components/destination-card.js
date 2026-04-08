@@ -1,4 +1,4 @@
-export function DestinationCard(destination) {
+﻿export function DestinationCard(destination) {
   return `
     <li class="c-destination-list__item">
       <article
@@ -33,7 +33,7 @@ export function DestinationCard(destination) {
             <p class="c-card__eyebrow">
               <span class="c-card__country" data-country>${destination.country}</span>,
               <span class="c-card__region" data-region>${destination.region}</span>
-              <span class="c-card__days"><span data-days>${destination.daysDefault}</span> día</span>
+              <span class="c-card__days"><span data-days>${destination.daysDefault}</span> d&iacute;a</span>
             </p>
 
             <h5 class="c-card__title">${destination.title}</h5>
@@ -42,7 +42,7 @@ export function DestinationCard(destination) {
           <div class="c-card__footer">
             <div class="c-card__price" aria-live="polite">
               <span class="c-card__from">Desde</span>
-              <span class="c-card__amount" data-price-display>248,00&nbsp;€</span>
+              <span class="c-card__amount" data-price-display>248,00&nbsp;&euro;</span>
               <a class="c-card__breakdown" href="#">Ver desglose</a>
             </div>
 
